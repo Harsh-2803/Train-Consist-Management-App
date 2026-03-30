@@ -1,20 +1,21 @@
 import java.util.ArrayList;
-import java.util.List;
 
-
-public class TrainManagementApp {
-
+public class BogieManagement {
     public static void main(String[] args) {
+        ArrayList<String> bogies = new ArrayList<>();
 
-        System.out.println("=== Train Consist Management App ===");
+        bogies.add("Sleeper");
+        bogies.add("AC Chair");
+        bogies.add("First Class");
 
-        List<String> trainConsist = new ArrayList<>();
+        System.out.println("After adding bogies: " + bogies);
 
-        System.out.println("Train consist initialized successfully.");
+        bogies.remove("AC Chair");
+        System.out.println("After removing AC Chair: " + bogies);
 
-        System.out.println("Initial bogie count: " + trainConsist.size());
+        boolean exists = bogies.contains("Sleeper");
+        System.out.println("Is Sleeper present? " + exists);
 
-        System.out.println("System is ready for operations...");
-
+        System.out.println("Final bogie list: " + bogies);
     }
 }
