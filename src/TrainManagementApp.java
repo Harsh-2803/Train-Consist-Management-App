@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class TrainConsist {
+public class TrainManagementApp {
     public static void main(String[] args) {
         LinkedList<String> train = new LinkedList<>();
 
