@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class UniqueBogieIDs {
+public class TrainManagementApp {
     public static void main(String[] args) {
         HashSet<String> bogieIDs = new HashSet<>();
 
