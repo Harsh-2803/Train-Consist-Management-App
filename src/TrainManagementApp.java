@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class BogieManagement {
+public class TrainManagementApp {
     public static void main(String[] args) {
         ArrayList<String> bogies = new ArrayList<>();
 
