@@ -1,34 +1,34 @@
 import java.util.*;
+import java.util.stream.*;
 
 public class TrainManagementApp {
 
     public static void main(String[] args) {
 
-        // Goods bogies: type and cargo
-        List<String[]> bogies = new ArrayList<>();
+        List<Integer> bogies = Arrays.asList(50, 60, 70, 80, 90, 100);
 
-        bogies.add(new String[]{"Cylindrical", "Petroleum"});
-        bogies.add(new String[]{"Box", "Grains"});
-        bogies.add(new String[]{"Cylindrical", "Petroleum"});
-        bogies.add(new String[]{"Box", "Coal"});
+        long startLoop = System.nanoTime();
 
-        // Safety check using stream + allMatch
-        boolean isSafe = bogies.stream().allMatch(bogie -> {
-            String type = bogie[0];
-            String cargo = bogie[1];
-
-            // Rule: Cylindrical → only Petroleum
-            if (type.equals("Cylindrical")) {
-                return cargo.equals("Petroleum");
+        List<Integer> loopResult = new ArrayList<>();
+        for (int b : bogies) {
+            if (b > 70) {
+                loopResult.add(b);
             }
-            return true;
-        });
-
-        // Output
-        if (isSafe) {
-            System.out.println("Train is Safety Compliant");
-        } else {
-            System.out.println("Train is NOT Safety Compliant");
         }
+
+        long endLoop = System.nanoTime();
+        long loopTime = endLoop - startLoop;
+
+        long startStream = System.nanoTime();
+
+        List<Integer> streamResult = bogies.stream()
+                .filter(b -> b > 70)
+                .collect(Collectors.toList());
+
+        long endStream = System.nanoTime();
+        long streamTime = endStream - startStream;
+
+        System.out.println("Loop Time: " + loopTime + " ns");
+        System.out.println("Stream Time: " + streamTime + " ns");
     }
 }
