@@ -1,13 +1,10 @@
 public class TrainManagementApp {
 
-    // Custom Runtime Exception
     static class CargoSafetyException extends RuntimeException {
         public CargoSafetyException(String message) {
             super(message);
         }
     }
-
-    // Goods Bogie Class
     static class GoodsBogie {
         String type;
         String cargo;
@@ -18,7 +15,7 @@ public class TrainManagementApp {
 
         public void assignCargo(String cargo) {
             try {
-                // Rule: Rectangular cannot carry Petroleum
+             
                 if (type.equals("Rectangular") && cargo.equals("Petroleum")) {
                     throw new CargoSafetyException("Unsafe cargo assignment!");
                 }
@@ -38,13 +35,13 @@ public class TrainManagementApp {
     public static void main(String[] args) {
 
         GoodsBogie b1 = new GoodsBogie("Cylindrical");
-        b1.assignCargo("Petroleum"); // valid
+        b1.assignCargo("Petroleum");
 
         GoodsBogie b2 = new GoodsBogie("Rectangular");
-        b2.assignCargo("Petroleum"); // invalid
+        b2.assignCargo("Petroleum");
 
         GoodsBogie b3 = new GoodsBogie("Rectangular");
-        b3.assignCargo("Grains"); // valid
+        b3.assignCargo("Grains");
 
         System.out.println("Program continues safely...");
     }
